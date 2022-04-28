@@ -1,0 +1,103 @@
+<!-- As a link -->
+<nav class="navbar navbar-light bg-dark ">
+    <a class="navbar-brand  " href="#" style="color:rgb(85, 98, 237);"><b>&#169; HAFC Bank Pvt.Ltd </b></a>
+    <span class="quote text-light">Giving you freedom...</span>
+    <!-- string interpolation -->
+    <button (click)="logout()" class="btn btn-info">Log Out</button>
+</nav>
+
+<h1 style="color: beige;">Welcome {{user}}</h1>
+<p style="color: beige;">{{LoginDate | date:'short'}}</p>
+<a routerLink="/transaction">Transaction History</a>
+<!-- <app-animation-demo></app-animation-demo> -->
+
+<div class="container col-md-12 mt-0">
+    <div class="d-flex justify-content-center h-100">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="text-center">Deposit Form</h3>
+
+            </div>
+            <div class="card-body">
+                <form [formGroup]="DepositForm" (ngSubmit)="deposit()">
+                    <div class="input-group form-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                        </div>
+                        <input type="text" name="acno" formControlName="acno" class="form-control" placeholder="Account Number"
+                            id="deposit_accno" required>
+
+                    </div>
+                    <div style="color: beige;" class="mb-3" *ngIf="this.DepositForm.get('acno')?.errors&&this.DepositForm.get('acno')?.touched">Incorrect Account Number</div>    
+
+                    <div class="input-group form-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-key"></i></span>
+                        </div>
+                        <input type="password" name="pwd" formControlName="pwd" class="form-control" placeholder="password"
+                            id="deposit_password" required>
+                    </div>
+                    <div style="color: beige;" class="mb-3" *ngIf="this.DepositForm.get('pwd')?.errors&&this.DepositForm.get('pwd')?.touched">Incorrect Account Number</div>    
+
+                    <div class="input-group form-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-key"></i></span>
+                        </div>
+                        <input type="text" name="pwd" formControlName="amnt" class="form-control" placeholder="Amount"
+                            id="deposit_amount" required>
+                    </div>
+                    <div style="color: beige;" class="mb-3" *ngIf="this.DepositForm.get('amnt')?.errors&&this.DepositForm.get('amnt')?.touched">Incorrect Account Number</div>    
+
+                    <div class="form-group">
+                        <input type="submit" value="Deposit" class="btn float-right login_btn " style="width:50%">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container col-md-12 mt-0">
+    <div class="d-flex justify-content-center h-100">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="text-center">Widraw Form</h3>
+
+            </div>
+            <div class="card-body">
+                <form [formGroup]="WithdrawForm" (ngSubmit)="withdraw()">
+                    <div class="input-group form-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                        </div>
+                        <input type="text" name="acno1" formControlName="acno" class="form-control" placeholder="Account Number"
+                            id="widraw_accno" required>
+
+                    </div>
+                    <div style="color: beige;" class="mb-3" *ngIf="this.WithdrawForm.get('acno')?.errors&&this.WithdrawForm.get('acno')?.touched">Incorrect Account Number</div>    
+
+                    <div class="input-group form-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-key"></i></span>
+                        </div>
+                        <input type="password" name="pwd1" formControlName="pwd" class="form-control" placeholder="password"
+                            id="widraw_password" required>
+                    </div>
+                    <div style="color: beige;" class="mb-3" *ngIf="this.WithdrawForm.get('pwd')?.errors&&this.WithdrawForm.get('pwd')?.touched">Incorrect Account Number</div>    
+
+                    <div class="input-group form-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-key"></i></span>
+                        </div>
+                        <input type="text" name="amnt" formControlName="amnt" class="form-control" placeholder="Amount"
+                            id="widraw_amount" required>
+                    </div>
+                    <div style="color: beige;" class="mb-3" *ngIf="this.WithdrawForm.get('amnt')?.errors&&this.WithdrawForm.get('amnt')?.touched">Incorrect Account Number</div>    
+
+                    <div class="form-group">
+                        <input type="submit" value="Widraw" class="btn float-right login_btn " style="width:50%">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

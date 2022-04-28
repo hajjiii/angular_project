@@ -1,0 +1,71 @@
+<!-- As a link -->
+<nav class="navbar navbar-light bg-dark ">
+    <a class="navbar-brand  " href="#" style="color:rgb(85, 98, 237);"><b>&#169; HAFC Bank Pvt.Ltd </b></a>
+    <span class="quote text-light">Giving you freedom...</span>
+</nav>
+
+
+<div class="container col-md-12 mt-0">
+    <div class="d-flex justify-content-center h-100">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="text-center">Sign Up</h3>
+
+            </div>
+            <div class="card-body">
+                <form [formGroup]="RegisterForm" (ngSubmit)="register()">
+                    <div class="input-group form-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                        </div>
+                        <!-- [(ngModel)]="uname" -->
+                        <input type="text" name="uname" formControlName="uname" class="form-control" placeholder="Username"
+                            id="login_uname" required>
+
+                    </div>                  
+                    <div style="color: beige;" class="mb-3" *ngIf="this.RegisterForm.get('uname')?.errors&&this.RegisterForm.get('uname')?.touched">Incorrect Username</div>    
+                    <div class="input-group form-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                        </div>
+                        <!--event binding using $event  -->
+                        <!-- (change)="acnoChange($event)" -->
+                        <!-- template reference variable -->
+                        <!-- #acno -->
+                        <!-- ngModel -->
+                        <!-- [(ngModel)]="acno" -->
+                        <input type="text" name="acno" formControlName="acno" class="form-control" placeholder="Account number" id="login_accno" required>
+
+                    </div>
+                    <div style="color: beige;" class="mb-3" *ngIf="this.RegisterForm.get('acno')?.errors&&this.RegisterForm.get('acno')?.touched">Incorrect Account Number</div>    
+
+                    <div class="input-group form-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-key"></i></span>
+                        </div>
+                        <!--event binding using $event  -->
+                        <!-- (change)="pwdChange($event)" -->
+                        <!-- template reference variable -->
+                        <!-- #pwd  -->
+                        <!-- ngModel -->
+                        <input type="password" name="pwd" formControlName="pwd" class="form-control" placeholder="password"
+                            id="login_password" required>
+                    </div>
+                    <div style="color: beige;" class="mb-3" *ngIf="this.RegisterForm.get('pwd')?.errors&&this.RegisterForm.get('pwd')?.touched">Incorrect password</div>    
+
+
+
+                    <div class="form-group">
+                        <!-- Event Binding -->
+                        <!-- template reference variable -->
+                        <!-- (click)="login(acno,pwd)" -->
+                        <!-- (click)="register()" -->
+                        <input type="submit"  value="Register" class="btn float-right login_btn "
+                            style="width:50%">
+                    </div>
+                </form>
+            </div>
+            <p style="color:white;align-items:baseline;">Already Existing? <a routerLink="">Log In</a></p>
+        </div>
+    </div>
+</div>
